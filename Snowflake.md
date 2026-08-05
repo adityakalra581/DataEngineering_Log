@@ -1,4 +1,4 @@
-## Data Engineering Learning Log
+## Snowflake
 
 ### 1. Unix Epoch Timestamps in JSON [5th Aug 2026]
 
