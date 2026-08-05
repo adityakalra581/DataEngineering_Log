@@ -1,6 +1,5 @@
-
 ## Pyspark
--------
+----
 ### 1. Data Skew: Repartition vs. Broadcast Join vs. Salting [Aug 5th 2026]
 
 **What I learned:** asked how to handle data skew in an interview, I answered "repartition" — a reasonable instinct, but not the targeted fix. Here's the actual breakdown of when each technique applies.
