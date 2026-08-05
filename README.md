@@ -1,4 +1,4 @@
-# Learning Log
+# Data Engineering Learning Log
 
 Quick recall index. Ctrl+F this page first, or search within topic files directly.
 
