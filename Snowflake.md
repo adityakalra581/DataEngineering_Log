@@ -1,6 +1,6 @@
 ## Data Engineering Learning Log
 
-### 1. Unix Epoch Timestamps in JSON
+### 1. Unix Epoch Timestamps in JSON [5th Aug 2026]
 
 **What I learned:** A JSON date field showing up as a large number (e.g., `1787011200000`) isn't a broken or unusual field — it's Unix epoch time in milliseconds: 
 the count of milliseconds elapsed since January 1, 1970, 00:00:00 UTC.
@@ -38,7 +38,7 @@ FROM raw_table;
 
 ---
 
-### 2. RAISE vs. RETURN in Snowflake Stored Procedures (and why Task suspension silently failed)
+### 2. RAISE vs. RETURN in Snowflake Stored Procedures (and why Task suspension silently failed) [5th Aug 2026]
 
 **What I learned:** a stored procedure was catching exceptions and logging them to our exception-report table correctly — but the calling Task, configured with `SUSPEND_TASK_AFTER_NUM_FAILURES = 1`, never suspended. This meant failures kept re-running every minute, generating repeated failure emails, instead of stopping until someone manually investigated and resumed the Task.
 
