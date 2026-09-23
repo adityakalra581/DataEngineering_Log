@@ -9,7 +9,9 @@
 - SQS
 - Lambda
 - Step Functions
+- Cloudwatch
 - Bedrock
+- Sagemaker
 - Rekognition
 - Polly
 - Q
