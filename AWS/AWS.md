@@ -61,21 +61,8 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - Contrast with SageMaker: Bedrock = consume pre-trained FMs via API; SageMaker = build/train/deploy custom ML models from scratch.
 - Serverless — you don't choose or manage underlying compute.
 
-## SageMaker
-- End-to-end ML platform: build, train, tune, deploy, and monitor custom models.
-- Key sub-features tested: SageMaker Studio (IDE), SageMaker Autopilot (AutoML), SageMaker Clarify (bias detection & explainability), SageMaker Feature Store, SageMaker Model Monitor, SageMaker JumpStart (pre-built models/solutions, including some FM access).
-- Exam pattern: "need a custom model trained on proprietary structured data" → SageMaker, not Bedrock.
-- Full ML lifecycle: data prep → train → tune → deploy → monitor is native to SageMaker.
 
-## Rekognition
-- Pre-trained computer vision service — image and video analysis: object/scene detection, facial analysis/comparison, text-in-image (OCR-lite), content moderation, celebrity recognition.
-- No ML expertise required — API call in, structured labels out.
-- Exam pattern: "detect inappropriate content in user-uploaded images" → Rekognition (content moderation feature).
 
-## Polly
-- Text-to-speech — converts text into lifelike speech audio.
-- Neural TTS vs. standard TTS voices; supports SSML for fine control (pauses, emphasis, pronunciation).
-- Pairs conceptually with Transcribe (speech-to-text, the reverse direction) — exams like to pair/contrast these two.
 
 ## Amazon Q family
 **Branding note:** AWS has been renaming parts of this family through 2025–2026 (QuickSight → Amazon Quick Suite → Amazon Quick; Q Business closed to new customers and is folding into Amazon Quick as of mid-2026). Current exam guides may still reference the older names below since exam content updates lag product renames — know both the concept and that the branding is in flux.
@@ -93,3 +80,28 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - Security Groups (stateful, instance-level) vs. Network ACLs (stateless, subnet-level) — classic exam contrast.
 - VPC Endpoints let services like S3/DynamoDB be reached privately without traversing the public internet — common "improve security" exam answer.
 - For data pipelines: Lambda/Glue jobs can run inside a VPC to reach private resources (e.g., an RDS database in a private subnet).
+
+## AWS AI Managed Services
+## Rekognition
+- Pre-trained computer vision service — image and video analysis: object/scene detection, facial analysis/comparison, text-in-image (OCR-lite), content moderation, celebrity recognition.
+- No ML expertise required — API call in, structured labels out.
+- Exam pattern: "detect inappropriate content in user-uploaded images" → Rekognition (content moderation feature).
+
+## Polly
+- Text-to-speech — converts text into lifelike speech audio.
+- Neural TTS vs. standard TTS voices; supports SSML for fine control (pauses, emphasis, pronunciation).
+- Pairs conceptually with Transcribe (speech-to-text, the reverse direction) — exams like to pair/contrast these two.
+
+## SageMaker
+- End-to-end ML platform: build, train, tune, deploy, and monitor custom models.
+- Key sub-features tested: SageMaker Studio (IDE), SageMaker Autopilot (AutoML), SageMaker Clarify (bias detection & explainability), SageMaker Feature Store, SageMaker Model Monitor, SageMaker JumpStart (pre-built models/solutions, including some FM access).
+- Exam pattern: "need a custom model trained on proprietary structured data" → SageMaker, not Bedrock.
+- Full ML lifecycle: data prep → train → tune → deploy → monitor is native to SageMaker.
+
+## TEXTRACT
+## COMPREHEND
+## TRANSLATE
+## KENDRA
+## LEX
+## TRANSCRIBE
+## PERSONALIZE
