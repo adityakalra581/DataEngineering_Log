@@ -81,7 +81,8 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - VPC Endpoints let services like S3/DynamoDB be reached privately without traversing the public internet — common "improve security" exam answer.
 - For data pipelines: Lambda/Glue jobs can run inside a VPC to reach private resources (e.g., an RDS database in a private subnet).
 
-## AWS AI Managed Services
+# AWS AI Managed Services — Certification Notes
+
 ## Rekognition
 - Pre-trained computer vision service — image and video analysis: object/scene detection, facial analysis/comparison, text-in-image (OCR-lite), content moderation, celebrity recognition.
 - No ML expertise required — API call in, structured labels out.
@@ -89,7 +90,7 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 
 ## Polly
 - Text-to-speech — converts text into lifelike speech audio.
-- Neural TTS vs. standard TTS voices; supports SSML(Space Synthesis Markup Language) for fine control (pauses, emphasis, pronunciation).
+- Neural TTS vs. standard TTS voices; supports SSML (Speech Synthesis Markup Language — not "Space," that's a common mix-up) for fine control over pauses, emphasis, and pronunciation.
 - Pairs conceptually with Transcribe (speech-to-text, the reverse direction) — exams like to pair/contrast these two.
 
 ## SageMaker
@@ -98,24 +99,92 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - Exam pattern: "need a custom model trained on proprietary structured data" → SageMaker, not Bedrock.
 - Full ML lifecycle: data prep → train → tune → deploy → monitor is native to SageMaker.
 
-## TEXTRACT
-- RAW, Queries,Layout, Forms, tables (??)
-## COMPREHEND and Comprehend Medical
-- NER(??), Custom Entity Recognition (??) 
-## TRANSLATE
-## KENDRA
-## LEX
-- Intents, Slots, Sample Utterances (??)
-## TRANSCRIBE And Transcribe Medical
-- ASR, Auto Remove PII Custom language Model, Improving Accuracy: Adding custom vocab, Toxicity Detection
-## PERSONALIZE
-- Recipes(??)
-## MECHANICAL TURK
-## AUGMENTED AI (A2I)
-## HEALTHSCRIBE
-## Amazon Hardware AI
-## AWS TRANIUM:
-- TRN1 Instance
-## AWS INFERENTIA:
-- Inf1, Inf2
-## 
+## Textract
+- Extracts text and structured data from scanned documents (images/PDFs) — goes beyond plain OCR.
+- Key API modes:
+  - **Raw text detection** — plain "find all the text" (DetectDocumentText).
+  - **Forms** — extracts key-value pairs (e.g., "Name: John Doe").
+  - **Tables** — extracts tabular data preserving row/column structure.
+  - **Queries** — ask natural-language questions against a document ("What is the invoice total?") and get the answer directly, without needing to know the doc's layout in advance.
+  - **Layout** — identifies structural elements (titles, headers, paragraphs, lists) to preserve reading order.
+- Exam pattern: "automate invoice/claim-form data extraction into structured fields" → Textract (Forms/Queries), often chained with Comprehend for further NLP on the extracted text.
+
+## Comprehend and Comprehend Medical
+- **Comprehend**: NLP service for unstructured text — sentiment analysis, key phrase extraction, language detection, and **NER (Named Entity Recognition)** — automatically finds built-in entity types (people, places, organizations, dates).
+- **Custom Entity Recognition**: lets you train Comprehend to recognize entity types specific to your business (e.g., product SKUs, internal case IDs) that aren't in the built-in set — requires labeled training data.
+- Custom Classification: similarly, trains Comprehend to sort text into your own custom categories.
+- **Comprehend Medical**: a specialized version that extracts medical information (medications, dosages, diagnoses, treatments, anatomy) from unstructured clinical text like doctor's notes — HIPAA-eligible service.
+- Exam pattern: "extract structured medical info from free-text clinical notes" → Comprehend Medical, not vanilla Comprehend.
+
+## Translate
+- Neural machine translation between languages, real-time or batch.
+- Supports "Active Custom Translation" to bias output using your own parallel-text examples (e.g., preserve brand terminology).
+- Commonly chained after Transcribe (speech→text) and before Polly (text→speech) to build multilingual voice pipelines.
+
+## Kendra
+- Intelligent enterprise search — NLP-powered search across unstructured data sources (S3, SharePoint, Confluence, RDS, etc.), returning direct answers, not just a list of links (unlike traditional keyword search).
+- Exam pattern: "let employees ask natural-language questions across scattered internal documents" → Kendra. (Note: this use case increasingly overlaps with Amazon Q Business in more recent exam content.)
+
+## Lex
+- Builds conversational chatbots/voice bots using the same tech behind Alexa.
+- Key terms:
+  - **Intent** — the goal a user wants to accomplish (e.g., "BookHotel").
+  - **Slot** — a piece of information needed to fulfill the intent (e.g., city, check-in date) — like a required parameter.
+  - **Sample utterances** — example phrases used to train the bot to recognize an intent ("I want to book a room," "Reserve a hotel for me").
+- Combines ASR (speech-to-text) + NLU (natural language understanding) in one managed service.
+- Often paired with Lambda (to fulfill the intent's business logic) and Connect (for contact-center voice bots).
+
+## Transcribe and Transcribe Medical
+- **ASR (Automatic Speech Recognition)** — converts speech to text.
+- Key features:
+  - **Automatic PII redaction** — automatically detects and removes/masks sensitive info (names, SSNs, etc.) from transcripts.
+  - **Custom language model** — improves accuracy for domain-specific speech patterns by training on your own text data.
+  - **Custom vocabulary** — improves recognition of specific words/phrases (jargon, product names, acronyms) not well handled by the default model — the simpler option vs. a full custom language model.
+  - **Toxicity detection** — flags harmful language (harassment, hate speech) in audio content, useful for moderating voice/gaming platforms.
+- **Transcribe Medical**: specialized for clinical speech — recognizes medical terminology accurately, HIPAA-eligible.
+- Exam pattern: "improve transcription accuracy for a small set of unusual product names" → custom vocabulary (cheaper/faster) rather than a full custom language model (used for broader domain-specific accuracy improvements).
+
+## Personalize
+- Managed recommendation-engine service — builds personalized recommendations (products, content) without needing ML expertise, based on the same tech Amazon.com uses.
+- **Recipes**: pre-built algorithm templates for specific use cases you choose from rather than build yourself — e.g., User-Personalization (general recommendations), Similar-Items (SIMS), Personalized-Ranking (re-ranks a given list for a user), Trending-Now, Next-Best-Action.
+- Needs interaction data (clicks, purchases, views) as input, not just item metadata.
+
+## Mechanical Turk
+- Crowdsourcing marketplace — humans complete small tasks ("HITs" — Human Intelligence Tasks) such as labeling images, transcribing audio, or moderating content.
+- Commonly used to generate labeled training data for ML models — often paired with SageMaker Ground Truth, which can route low-confidence labels to Mechanical Turk workers.
+
+## Augmented AI (A2I)
+- Builds human-review workflows for ML predictions — routes low-confidence predictions to a human reviewer before the result is used.
+- Integrates natively with Textract, Rekognition, and custom SageMaker models.
+- Exam pattern: "ensure a human checks any Textract extraction below a confidence threshold before it's used downstream" → A2I.
+
+## HealthScribe
+- Generates clinical documentation automatically from patient-clinician conversations — effectively an AI medical scribe.
+- Combines speech recognition + medical NLP (conceptually built on Transcribe Medical + Comprehend Medical-style capabilities) to produce a structured clinical note summary.
+- HIPAA-eligible, healthcare-specific.
+
+## Amazon Hardware for AI (purpose-built ML chips)
+### AWS Trainium
+- Custom silicon purpose-built for **training** ML models at lower cost than GPU-based instances.
+- **Trn1 instances**: the EC2 instance family powered by Trainium chips, optimized for large-scale deep learning training workloads.
+
+### AWS Inferentia
+- Custom silicon purpose-built for **inference** (running predictions from an already-trained model) at high throughput and low cost.
+- **Inf1 instances**: first-generation Inferentia-powered instances.
+- **Inf2 instances**: second-generation, higher performance, better suited for large-model/LLM inference at scale.
+- Exam pattern: distinguish Trainium (training) from Inferentia (inference) by task, and both from general-purpose GPU instances (P/G families) which are more flexible but typically costlier.
+
+## Note: AI Services vs. ML Services tier
+AWS splits its AI/ML portfolio into two tiers, and exams test this distinction directly:
+- **AI Services** (pre-trained, no ML expertise needed — just call the API): everything above except SageMaker — Rekognition, Polly, Textract, Comprehend, Translate, Kendra, Lex, Transcribe, Personalize, plus Bedrock for the generative AI tier specifically.
+- **ML Services** (build/train/deploy your own custom models): SageMaker.
+Exam trap: "team has no ML expertise" → pick a pre-built AI service, not SageMaker.
+
+## Other AI Services Worth Recognizing (lower exam weight, but appear)
+- **Amazon Fraud Detector** — managed fraud-detection ML, no ML expertise needed; trained on your own historical fraud data.
+- **Amazon Forecast** — time-series forecasting (demand, inventory, resource planning) as a managed service.
+- **Amazon Lookout for Vision** — detects visual defects in manufactured products via computer vision.
+- **Amazon Lookout for Metrics** — detects anomalies in business/operational metrics automatically.
+- **Amazon Lookout for Equipment** — detects abnormal equipment behavior from sensor data for predictive maintenance.
+- **Amazon Monitron** — end-to-end hardware + ML solution for equipment condition monitoring and predictive maintenance.
+- **Amazon Panorama** — brings computer vision models to edge devices/on-prem cameras (appliance + SDK), for scenarios needing local/low-latency inference rather than cloud round-trips.
