@@ -93,11 +93,40 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - Neural TTS vs. standard TTS voices; supports SSML (Speech Synthesis Markup Language — not "Space," that's a common mix-up) for fine control over pauses, emphasis, and pronunciation.
 - Pairs conceptually with Transcribe (speech-to-text, the reverse direction) — exams like to pair/contrast these two.
 
-## SageMaker
+## SageMaker AI
 - End-to-end ML platform: build, train, tune, deploy, and monitor custom models.
 - Key sub-features tested: SageMaker Studio (IDE), SageMaker Autopilot (AutoML), SageMaker Clarify (bias detection & explainability), SageMaker Feature Store, SageMaker Model Monitor, SageMaker JumpStart (pre-built models/solutions, including some FM access).
 - Exam pattern: "need a custom model trained on proprietary structured data" → SageMaker, not Bedrock.
 - Full ML lifecycle: data prep → train → tune → deploy → monitor is native to SageMaker.
+- AMT?, Sagemaker different model deployments/inference and their use cases?, Built in algorithms?
+- What is normal sagemaker in aws?
+- Sagemaker Data Wrangler? ML Features? Sagemaker feature Store?
+- Sagemaker Clarify? Model Explainability? Detect Bias? Ground Truth(RLHF)? Ground Truth Plus?
+- Sagemaker ML Governace? Model Cards? Model Dashboard? Role Manager? Model Registry?
+- Sagemaker Pipelines? All steps and their order might be important?
+- Jumpstart (ML HUB, ML Solutions)??
+- Sagemaker Canvas? MLflow on canvas?
+- Extra feature on sagemaker? Network Isolation Mode? DeepAR Forecasting (Forecast time series data)??
+Seems like it deserve it's own .md file
+SageMaker – Summary 
+
+• SageMaker: end-to-end ML service
+• SageMaker Automatic Model Tuning: tune hyperparameters
+• SageMaker Deployment & Inference: real-time, serverless, batch, async
+• SageMaker Studio: unified interface for SageMaker
+• SageMaker Data Wrangler: explore and prepare datasets, create features
+• SageMaker Feature Store: store features metadata in a central place
+• SageMaker Clarify: compare models, explain model outputs, detect bias
+• SageMaker Ground Truth: RLHF, humans for model grading and data labeling
+• SageMaker Model Cards: ML model documentation
+• SageMaker Model Dashboard: view all your models in one place
+• SageMaker Model Monitor: monitoring and alerts for your model
+• SageMaker Model Registry: centralized repository to manage ML model versions
+• SageMaker Pipelines: CICD for Machine Learning
+• SageMaker Role Manager: access control
+• SageMaker JumpStart: ML model hub & pre-built ML solutions
+• SageMaker Canvas: no-code interface for SageMaker
+• MLFlow on SageMaker: use MLFlow tracking servers on AW
 
 ## Textract
 - Extracts text and structured data from scanned documents (images/PDFs) — goes beyond plain OCR.
