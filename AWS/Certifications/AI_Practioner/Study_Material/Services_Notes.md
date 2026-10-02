@@ -99,20 +99,33 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - Contrast with SageMaker: Bedrock = consume pre-trained FMs via API; SageMaker = build/train/deploy custom ML models from scratch.
 - Serverless — you don't choose or manage underlying compute.
 
-## AWS Services for Bedrock
+## AWS Services for Amazon Bedrock
 
-**1. IAM with Bedrock:** 
-- Implement identity verification and resource-level access control
-- Define roles and permissions to access Bedrock resources (e.g., data scientists
-**2. GuardRails for Bedrock:**
-- Restrict specific topics in a GenAI application
-- Filter harmful content
-- Ensure compliance with safety policies by analyzing user inputs
-**3. CloudTrail with Bedrock:**
-- Analyze API calls made to Amazon Bedrock
-**4. Config with Bedrock:**
-- look at configuration changes within Bedrock
-- PrivateLink with Bedrock: keep all API calls to Bedrock within the private VPC
+### 1. IAM with Amazon Bedrock
+- Implement **identity verification** and **resource-level access control**.
+- Define **roles and permissions** to control access to Amazon Bedrock resources.
+- Example: Grant data scientists access to specific Bedrock resources based on their responsibilities.
+
+### 2. Guardrails for Amazon Bedrock
+- Restrict **specific topics** in generative AI applications.
+- Filter **harmful or inappropriate content**.
+- Help ensure compliance with **organizational safety policies** by analyzing user inputs and model outputs.
+
+### 3. CloudTrail with Amazon Bedrock
+- Monitor and analyze **API calls** made to Amazon Bedrock.
+- Track **who** performed an action, **what** action was performed, and **when** it occurred.
+- Use audit logs to support **security monitoring and compliance**.
+
+### 4. AWS Config with Amazon Bedrock
+- Monitor and record **configuration changes** to AWS resources.
+- Evaluate resource configurations against **organizational compliance requirements**.
+- Help identify configuration changes that may introduce **security or compliance risks**.
+
+### 5. AWS PrivateLink with Amazon Bedrock
+- Establish **private connectivity** to Amazon Bedrock through VPC endpoints.
+- Keep API traffic between your VPC and Bedrock on the **AWS private network** rather than traversing the public internet.
+- Improve **network isolation and security** for applications accessing Bedrock.
+
 
 
 
