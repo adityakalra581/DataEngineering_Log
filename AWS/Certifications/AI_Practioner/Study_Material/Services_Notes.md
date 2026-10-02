@@ -49,11 +49,49 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - Two workflow types: Standard (long-running, up to 1 year, exactly-once) and Express (short, high-volume, at-least-once, cheaper).
 - Exam pattern: "orchestrate a multi-step pipeline across Lambda, Glue, and SNS with retry logic" → Step Functions is the go-to answer over manually chaining Lambdas.
 
+## Macie
+
+## Config
+
+## Inspector
+
+## CloudTrail
+
 ## CloudWatch
 - Monitoring and observability: metrics, logs, alarms, dashboards.
 - CloudWatch Logs (log aggregation), CloudWatch Metrics (numeric time-series), CloudWatch Alarms (trigger actions/notifications on thresholds), CloudWatch Events/EventBridge (event-driven triggers — EventBridge is the newer, more feature-rich evolution).
 - Exam pattern: "detect and alert on a pipeline failure" → CloudWatch Alarm, often paired with SNS for notification.
 - Distinct from CloudTrail: CloudWatch = performance/operational monitoring; CloudTrail = API call auditing (who did what, when).
+
+## Artifact
+
+## Audit Manager
+
+## Trusted Advisor
+
+## VPC (Virtual Private Cloud)
+- Your own logically isolated network within AWS — subnets, route tables, gateways, security groups, NACLs.
+- Public subnet (has route to Internet Gateway) vs. private subnet (no direct internet route, often uses a NAT Gateway for outbound-only access).
+- Security Groups (stateful, instance-level) vs. Network ACLs (stateless, subnet-level) — classic exam contrast.
+- VPC Endpoints let services like S3/DynamoDB be reached privately without traversing the public internet — common "improve security" exam answer.
+- For data pipelines: Lambda/Glue jobs can run inside a VPC to reach private resources (e.g., an RDS database in a private subnet).
+
+## AWS Security Services – Section Summary
+
+- IAM Users – mapped to a physical user, has a password for AWS Console
+- IAM Groups – contains users only 
+- IAM Policies – JSON document that outlines permissions for users or groups
+- IAM Roles – for EC2 instances or AWS services
+- EC2 Instance – AMI (OS) + Instance Size (CPU + RAM) + Storage + security groups + EC2 User Data
+- AWS Lambda – serverless, Function as a Service, seamless scaling
+- VPC Endpoint powered by AWS PrivateLink – provide private access to AWS Services within VPC
+- S3 Gateway Endpoint: access Amazon S3 privately
+- Macie – find sensitive data (ex: PII data) in Amazon S3 buckets
+- Config – track config changes and compliance against rules
+- Inspector – find software vulnerabilities in EC2, ECR Images, and Lambda functions
+- CloudTrail – track API calls made by users within account
+- Artifact – get access to compliance reports such as PCI, ISO, etc…
+- Trusted Advisor – to get insights, Support Plan adapted to your needs
 
 ## Bedrock
 - Fully managed service for accessing foundation models (Anthropic Claude, Meta Llama, Amazon Nova/Titan, etc.) via a single API — no infrastructure to manage.
@@ -61,6 +99,20 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - Contrast with SageMaker: Bedrock = consume pre-trained FMs via API; SageMaker = build/train/deploy custom ML models from scratch.
 - Serverless — you don't choose or manage underlying compute.
 
+## AWS Services for Bedrock
+
+**1. IAM with Bedrock:** 
+- Implement identity verification and resource-level access control
+- Define roles and permissions to access Bedrock resources (e.g., data scientists
+**2. GuardRails for Bedrock:**
+- Restrict specific topics in a GenAI application
+- Filter harmful content
+- Ensure compliance with safety policies by analyzing user inputs
+**3. CloudTrail with Bedrock:**
+- Analyze API calls made to Amazon Bedrock
+**4. Config with Bedrock:**
+- look at configuration changes within Bedrock
+- PrivateLink with Bedrock: keep all API calls to Bedrock within the private VPC
 
 
 
@@ -74,12 +126,7 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - **Q for Glue:** The Glue-specific piece of Q Developer — helps author, troubleshoot, and explain Glue ETL jobs/scripts using natural language.
 - **Q Business:** Generative AI assistant for internal enterprise use — search, summarize, and generate content across a company's own documents/data sources (being folded into Amazon Quick).
 
-## VPC (Virtual Private Cloud)
-- Your own logically isolated network within AWS — subnets, route tables, gateways, security groups, NACLs.
-- Public subnet (has route to Internet Gateway) vs. private subnet (no direct internet route, often uses a NAT Gateway for outbound-only access).
-- Security Groups (stateful, instance-level) vs. Network ACLs (stateless, subnet-level) — classic exam contrast.
-- VPC Endpoints let services like S3/DynamoDB be reached privately without traversing the public internet — common "improve security" exam answer.
-- For data pipelines: Lambda/Glue jobs can run inside a VPC to reach private resources (e.g., an RDS database in a private subnet).
+
 
 # AWS AI Managed Services — Certification Notes
 
