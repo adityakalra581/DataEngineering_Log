@@ -50,8 +50,22 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - Exam pattern: "orchestrate a multi-step pipeline across Lambda, Glue, and SNS with retry logic" → Step Functions is the go-to answer over manually chaining Lambdas.
 
 ## Macie
+- Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect your sensitive data in AWS.
+- Macie helps identify and alert you to sensitive data, such as personally identifiable information (PII)
 
 ## Config
+- Helps with auditing and recording compliance of your AWS resources
+- Helps record configurations and changes over time
+- Possibility of storing the configuration data into S3 (analyzed by Athena)
+- Questions that can be solved by AWS Config:
+1. Is there unrestricted SSH access to my security groups? 
+2. Do my buckets have any public access? 
+- How has my ALB configuration changed over time?
+- You can receive aler ts (SNS notifications) for any changes
+- AWS Config is a per-region service
+- Can be aggregated across regions and accounts
+
+## Athena
 
 ## Inspector
 
