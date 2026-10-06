@@ -1,9 +1,9 @@
 ## Notes of Mock test Udemy Course
 
-- This process is called inference, where the model uses its trained parameters to generate a prediction or output based on new input data provided by the user
 - **Inference** is the correct term for this process. It refers to the stage where a trained machine learning model is deployed to make predictions or generate
 outputs based on new input data. During inference, the model uses the patterns and relationships it learned during training to provide accurate and meaningful results.
 In this scenario, the user sends input data to the SageMaker model, which then performs inference to generate the corresponding output or prediction.
+The process is called inference, where the model uses its trained parameters to generate a prediction or output based on new input data provided by the user
 
 - **Diffusion Model** - Diffusion models create new data by iteratively making controlled random changes to an initial data sample. They start with the original data and 
 add subtle changes (noise), progressively making it less similar to the original. This noise is carefully controlled to ensure the generated data remains coherent and realistic.
@@ -17,3 +17,17 @@ continues until the generator produces data that is so convincing that the discr
 - **Variational autoencoders (VAE)** - VAEs use two neural networks—the encoder and the decoder. The encoder neural network maps the input data to a mean and variance for each dimension
 of the latent space. It generates a random sample from a Gaussian (normal) distribution. This sample is a point in the latent space and represents a compressed, simplified version of the 
 input data. The decoder neural network takes this sampled point from the latent space and reconstructs it back into data that resembles the original input.
+
+- **Underfit models experience high bias, whereas, overfit models experience high variance**
+
+- Your model is underfitting the training data when the model performs poorly on the training data. This is because the model is unable to capture the relationship between the input examples (often called X) and the target values (often called Y). Your model is overfitting your training data when you see that the model performs well on the training data but does not perform well on the evaluation data. This is because the model is memorizing the data it has seen and is unable to generalize to unseen examples.
+
+- **Underfit models experience high bias** — they give inaccurate results for both the training data and test set. On the other hand, overfit models experience high variance - they give accurate results for the training set but not for the test set. More model training results in less bias but variance can increase. Data scientists aim to find the sweet spot between underfitting and overfitting when fitting a model. A well-fitted model can quickly establish the dominant trend for seen and unseen data sets.
+
+- **Amazon SageMaker Canvas** gives you the ability to use machine learning to generate predictions without needing to write any code. With Canvas, you can chat with popular large language models (LLMs), access Ready-to-use models, or build a custom model trained on your data.
+
+- **Amazon SageMaker JumpStart** : Provides one-click, end-to-end solutions for many common machine learning use cases 
+
+- **Amazon SageMaker Clarify**: Explains how input features contribute to the model predictions during model development and inference.
+
+- **Amazon SageMaker Data Wrangler**: The fastest and easiest way to prepare tabular and image data for machine learning.
