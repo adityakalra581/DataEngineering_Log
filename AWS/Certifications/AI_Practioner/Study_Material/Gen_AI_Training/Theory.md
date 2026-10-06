@@ -133,6 +133,12 @@ Local operating costs, data center infrastructure costs, energy costs, and local
 | **Top K** | Model considers only top K most likely next tokens. Lower K = less random output |
 
 Rule of thumb: for factual/precise outputs lower all three. For creative outputs raise temperature.
+- Question: 
+The marketing department at a media company wants to leverage Amazon Bedrock for making creative scripts for an upcoming ad campaign.
+What do you recommend?
+If we have to change one thing, what to change?
+
+
 
 ---
 
