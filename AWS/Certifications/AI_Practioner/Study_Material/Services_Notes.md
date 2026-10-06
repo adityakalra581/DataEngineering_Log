@@ -165,6 +165,8 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - **Q for EC2:** Gives sizing recommendations/guidance for choosing the right EC2 instance type for a new workload.
 - **Q for Glue:** The Glue-specific piece of Q Developer — helps author, troubleshoot, and explain Glue ETL jobs/scripts using natural language.
 - **Q Business:** Generative AI assistant for internal enterprise use — search, summarize, and generate content across a company's own documents/data sources (being folded into Amazon Quick).
+- **Quick Index:** It is a fully managed system that indexes information from various sources like Amazon S3 and SharePoint, allowing employees to easily ask natural-language questions and receive grounded answers drawn from that indexed data. This seamlessly connects to the objective of accessing and utilizing internal documents effectively.
+- **Quick Research:** It effectively synthesizes internal data with online information, allowing you to generate comprehensive reports that include citations. This capability aligns perfectly with the marketing manager's request for a thorough research report on competitors, demonstrating the tool's strength in combining multiple data sources for informed decision-making.
 
 
 
