@@ -31,3 +31,21 @@ input data. The decoder neural network takes this sampled point from the latent 
 - **Amazon SageMaker Clarify**: Explains how input features contribute to the model predictions during model development and inference.
 
 - **Amazon SageMaker Data Wrangler**: The fastest and easiest way to prepare tabular and image data for machine learning.
+
+- **Provisioned Throughput and On-Demand mode in aws bedrock**
+- You can use a customized model in the Provisioned Throughput or On-Demand mode
+This option is correct because Amazon Bedrock supports the use of customized models through Provisioned Throughput or On-Demand mode.
+To use a custom model with dedicated compute capacity and guaranteed throughput, you can purchase Provisioned Throughput for the custom model and then use the resulting provisioned model for inference. This mode is suitable when the company needs predictable performance for steady or production-grade workloads, such as fraud detection or automated reporting pipelines that require consistent throughput. You can also deploy a custom model for on-demand inference, and after the deployment becomes active, you use the deployment ARN as the modelId for inference requests.
+
+- **FMs use unlabeled training data sets for self-supervised learning**
+
+In supervised learning, you train the model with a set of input data and a corresponding set of paired labeled output data. 
+Unsupervised machine learning is when you give the algorithm input data without any labeled output data. Then, on its own, the algorithm identifies patterns and relationships in and between the data. Self-supervised learning is a machine learning approach that applies unsupervised learning methods to tasks usually requiring supervised learning. Instead of using labeled datasets for guidance, self-supervised models create implicit labels from unstructured data.
+Foundation models use self-supervised learning to create labels from input data. This means no one has instructed or trained the model with labeled training data sets.
+
+- **Each AWS Region consists of a minimum of three Availability Zones (AZ)**
+- **Each Availability Zone (AZ) consists of one or more discrete data centers**
+- AWS has the concept of a Region, which is a physical location around the world where AWS clusters its data centers. AWS calls each group of logical data centers an Availability Zone (AZ). Each AWS Region consists of a minimum of three, isolated, and physically separate AZs within a geographic area. Each AZ has independent power, cooling, and physical security
+and is connected via redundant, ultra-low-latency networks.
+An Availability Zone (AZ) is one or more discrete data centers with redundant power, networking, and connectivity in an AWS Region. All AZs in an AWS Region are interconnected with high-bandwidth, low-latency networking, over fully redundant, dedicated metro fiber providing high-throughput, low-latency networking between AZs.
+
