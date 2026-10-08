@@ -39,7 +39,7 @@ To use a custom model with dedicated compute capacity and guaranteed throughput,
 
 - **FMs use unlabeled training data sets for self-supervised learning**
 
-In supervised learning, you train the model with a set of input data and a corresponding set of paired labeled output data. 
+- In supervised learning, you train the model with a set of input data and a corresponding set of paired labeled output data. 
 Unsupervised machine learning is when you give the algorithm input data without any labeled output data. Then, on its own, the algorithm identifies patterns and relationships in and between the data. Self-supervised learning is a machine learning approach that applies unsupervised learning methods to tasks usually requiring supervised learning. Instead of using labeled datasets for guidance, self-supervised models create implicit labels from unstructured data.
 Foundation models use self-supervised learning to create labels from input data. This means no one has instructed or trained the model with labeled training data sets.
 
