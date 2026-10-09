@@ -5,7 +5,7 @@
 
 | Timeline | Certification | Who pays | Why |
 |---|---|---|---|
-| Oct 15, 2026 | AWS AI Practitioner (AIF-C01) | Self | On track — exam imminent |
+| Oct 17/18, 2026 | AWS AI Practitioner (AIF-C01) | Self | On track — exam imminent |
 | When company announces | AWS FDE Validated Certification | Company sponsored | Three free Skill Builder pathways — ground, orchestrate, prove |
 | Dec 2026 | AWS DE Associate (DEA-C01) | Self | Glue, Redshift, Kinesis, EMR — opens AWS DE job market |
 | Mar 2027 | Databricks Certified Spark Developer (Associate) | Self | PySpark validated — mandatory in many JDs like the one you shared |
