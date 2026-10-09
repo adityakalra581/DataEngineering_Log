@@ -27,7 +27,7 @@ and AWS security and governance for AI systems. Validates you understand the AI 
 
 **AWS FDE Validated Certification — When company announces**
 Covers deploying and operationalising AI systems directly at enterprise clients. Three pathways — ground (foundations of AI deployment), orchestrate (agent workflows and multi-model systems),
-prove (monitoring, red-teaming, and production hardening). Validates client-facing AI engineering capability, which is exactly what you do at Publicis Sapient.
+prove (monitoring, red-teaming, and production hardening). Validates client-facing AI engineering capability.
 
 ---
 
