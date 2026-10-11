@@ -934,11 +934,3 @@ def update_marks(conn):
 
 ---
 
-### Teaching sequence recap (mapped to this book's 14 chapters)
-
-1. **Chapters 1-4** (Python fundamentals + functions + modules) — build first, foundational for everything else
-2. **Chapters 5-6** (Exceptions + File Handling) — next, needed for the project later
-3. **Chapter 7** (Data Structures/Stacks) — can run in parallel with 5-6, fairly self-contained
-4. **Chapters 8-9** (Networks I & II) — mostly theory/definitions, compress into fewer, denser sessions
-5. **Chapters 10-13** (Database + SQL) — your strongest teaching ground, build steadily with lots of hands-on querying
-6. **Chapter 14** (Python-MySQL interface) — capstone, ties everything together into the practical project
