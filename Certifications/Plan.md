@@ -5,15 +5,18 @@
 
 | Timeline | Certification | Who pays | Why |
 |---|---|---|---|
-| Oct 17/18, 2026 | AWS AI Practitioner (AIF-C01) | Self | On track — exam imminent |
+| Oct 17/18, 2026 | AWS AI Practitioner (AIF-C01) | Voucher | On track — exam imminent |
 | When company announces | AWS FDE Validated Certification | Company sponsored | Three free Skill Builder pathways — ground, orchestrate, prove |
-| Dec 2026 | AWS DE Associate (DEA-C01) | Self | Glue, Redshift, Kinesis, EMR — opens AWS DE job market |
-| Mar 2027 | Databricks Certified Spark Developer (Associate) | Self | PySpark validated — mandatory in many JDs like the one you shared |
-| Jun 2027 | Databricks Data Engineer Associate | Self | End-to-end DE on Databricks — Delta Lake, pipelines, workflows |
-| Sep 2027 | SnowPro Core | Self | Snowflake depth validated — optional but strong finish |
+| Dec 2026 | AWS DE Associate (DEA-C01) | Reimbursement(On Passing) | Glue, Redshift, Kinesis, EMR — opens AWS DE job market |
+| Mar 2027 | Databricks Certified Spark Developer (Associate) | Reimbursement(On Passing) | PySpark validated — mandatory in many JDs like the one you shared |
+| Jun 2027 | Databricks Data Engineer Associate | Reimbursement(On Passing) | End-to-end DE on Databricks — Delta Lake, pipelines, workflows |
+| Sep 2027 | SnowPro Core | Reimbursement(On Passing) | Snowflake depth validated — optional but strong finish |
 
 ---
-Here you go.
+
+Other important ones:
+- Snowflake: SnowPro Advanced: Data Engineer (DEA-C02), SnowPro Advanced: Architect
+- If all done in time and these are still relevant then will attempt these.
 
 ---
 
