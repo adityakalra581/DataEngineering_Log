@@ -81,8 +81,31 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 ## Athena
 
 ## Inspector
+- Automated Security Assessments
+- Reporting & integration with AWS Security Hub
+- Send findings to Amazon Event Bridge
+#### For EC2 instances 
+- Leveraging the AWS System Manager (SSM) agent
+- Analyze against unintended network accessibility
+- Analyze the running OS against known vulnerabilities
+#### For Container Images push to Amazon ECR
+- Assessment of Container Images as they are pushed
+#### For Lambda Functions
+- Identifies software vulnerabilities in function code and package dependencies
+- Assessment of functions as they are deployed
+
 
 ## CloudTrail
+- Provides governance, compliance and audit for your AWS Account
+- CloudTrail is enabled by default!
+- Get an history of events / API calls made within your AWS Account by:
+• Console
+• SDK
+• CLI
+• AWS Services
+- Can put logs from CloudTrail into CloudWatch Logs or S3
+- A trail can be applied to All Regions (default) or a single Region.
+- If a resource is deleted in AWS, investigate CloudTrail first!
 
 ## CloudWatch
 - Monitoring and observability: metrics, logs, alarms, dashboards.
@@ -90,11 +113,35 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - Exam pattern: "detect and alert on a pipeline failure" → CloudWatch Alarm, often paired with SNS for notification.
 - Distinct from CloudTrail: CloudWatch = performance/operational monitoring; CloudTrail = API call auditing (who did what, when).
 
-## Artifact
+## Artifact (Only Provides reports and agreements)
+- Portal that provides customers with on-demand access to AWS compliance documentation and AWS agreements
+- Artifact Reports - Allows you to download AWS security and compliance documents from third-party auditors, like AWS ISO certifications, Payment Card Industry (PCI), and System and Organization Control (SOC) reports
+- Artifact Agreements - Allows you to review, accept, and track the status of AWS agreements such as the Business Associate Addendum (BAA) or the Health Insurance Portability and Accountability Act (HIPAA) for an individual account or in your organization
+- Can be used to support internal audit or compliance
 
-## Audit Manager
+
+## Audit Manager (Assess risk and compliance)
+- Assess risk and compliance of your AWS workloads
+- Continuously audit AWS services usage and prepare audits
+- Prebuilt frameworks include:
+• CIS AWS Foundations Benchmark 1.2.0 & 1.3.0
+• General Data Protection Regulation (GDPR),
+• Health Insurance Portability and Accountability Act (HIPAA)
+• Payment Card Industry Data Security Standard (PCI DSS) v3.2.1
+• Service Organization Control 2 (SOC 2)
+- Generates reports of compliance alongside evidence folders
 
 ## Trusted Advisor
+- AWS Trusted Advisor is a service that provides guidance to help you provision your resources following AWS best practices.
+- It helps optimize your AWS environment in areas such as cost savings, performance, security, and fault tolerance, making it an essential tool for governance in AI systems.
+
+## AWS Security Services – Section Summary
+- Macie – find sensitive data (ex: PII data) in Amazon S3 buckets
+- Config – track config changes and compliance against rules
+- Inspector – find software vulnerabilities in EC2, ECR Images, and Lambda functions
+- CloudTrail – track API calls made by users within account
+- Artifact – get access to compliance reports such as PCI, ISO, etc…
+- Trusted Advisor – to get insights, Support Plan adapted to your needs
 
 ## VPC (Virtual Private Cloud)
 - Your own logically isolated network within AWS — subnets, route tables, gateways, security groups, NACLs.
