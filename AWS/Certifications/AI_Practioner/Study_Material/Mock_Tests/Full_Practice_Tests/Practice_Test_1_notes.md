@@ -44,3 +44,15 @@ Together, these metrics show whether the agent improves efficiency and return on
 - **Real-time inference** - Real-time inference is optimized for scenarios where low latency is essential, and responses are needed immediately. It is not suitable for cases where the system can afford to wait for responses, as it might lead to higher costs and resource consumption without providing any additional benefit for this particular use case.
 
 - **Serverless inference** - Serverless inference is a good choice for workloads with unpredictable traffic or sporadic requests, as it scales automatically based on demand. However, it may not be as cost-effective for scenarios where workloads are predictable, and some waiting time is acceptable. Asynchronous inference provides a more targeted solution for handling delayed responses at a lower cost.
+
+#### Still doubtful? What is Document classification anyway
+
+- **Linear regression**: Linear regression refers to supervised learning models that, based on one or more inputs, predict a value from a continuous scale. An example of linear regression is predicting a house price. You could predict a house’s price based on its location, age, and number of rooms after you train a model on a set of historical sales training data with those variables.
+
+- **Neural network**: A neural network solution is a more complex supervised learning technique. To produce a given outcome, it takes some given inputs and performs one or more layers of mathematical transformation based on adjusting data weightings. An example of a neural network technique is predicting a digit from a handwritten image.
+
+- **Document classification**: - This is an example of semi-supervised learning. Semi-supervised learning is when you apply both supervised and unsupervised learning techniques to a common problem. This technique relies on using a small amount of labeled data and a large amount of unlabeled data to train systems. When applying categories to a large document base, there may be too many documents to physically label. For example, these could be countless reports, transcripts, or specifications. Training on the unlabeled data helps identify similar documents for labeling.
+
+- **Association rule learning** - This is an example of unsupervised learning. Association rule learning techniques uncover rule-based relationships between inputs in a dataset. For example, the Apriori algorithm conducts market basket analysis to identify rules like coffee and milk often being purchased together.
+
+- **Clustering** - Clustering is an unsupervised learning technique that groups certain data inputs, so they may be categorized as a whole. There are various types of clustering algorithms depending on the input data. An example of clustering is identifying different types of network traffic to predict potential security incidents.
