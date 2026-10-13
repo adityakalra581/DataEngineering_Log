@@ -22,6 +22,8 @@ The Model Dashboard view extracts high-level details from each model to provide 
 
 - **Amazon SageMaker Ground Truth** - Amazon SageMaker Ground Truth offers the most comprehensive set of human-in-the-loop capabilities, allowing you to harness the power of human feedback across the ML lifecycle to improve the accuracy and relevancy of models. You can complete a variety of human-in-the-loop tasks with SageMaker Ground Truth, from data generation and annotation to model review, customization, and evaluation, either through a self-service or an AWS-managed offering.
 
+- **Amazon SageMaker Feature Store** - Amazon SageMaker Feature Store is a fully managed, purpose-built repository to store, share, and manage features for machine learning (ML) models. Features are inputs to ML models used during training and inference. For example, in an application that recommends a music playlist, features could include song ratings, listening duration, and listener demographics.
+
 - **Task completion rate, cost per interaction, and customer satisfaction scores**
 Business objective alignment metrics measure whether an AI application achieves the outcomes that the business cares about, rather than only how well the model performs technically.
 Task completion rate (or goal success rate) shows how often the agent fully resolves a customer's request, such as completing a flight change, without handing off to a human. Cost per interaction compares the cost of each automated conversation, including model tokens and tools, with the cost of a human-handled request. Customer satisfaction scores, such as CSAT, show whether customers are happy with the experience.
