@@ -597,6 +597,26 @@ Running example: the model has to complete *"The sky is ___"* and assigns these 
 - Other inference parameters to remember: **max tokens / response length** (caps output size) and **stop sequences** (text that ends generation).
 - Changing these parameters does **not** retrain the model or reduce hallucinations by itself. For hallucinations, use RAG, Guardrails and prompt engineering.
 
+------------------
+## Explainability
+
+- Explainability is the ability to understand and evaluate why an AI system produces a specific output. In a hiring context, explanations show reviewers which factors, such as relevant experience or required certifications, influenced the screening decision for an application.
+AWS lists explainability as one of the core dimensions of responsible AI. Explanations help human reviewers check decisions before they act on them, detect when the system relies on inappropriate factors, and explain outcomes to applicants. This directly supports the company's goal of helping reviewers understand the decisions. Explainability therefore complements fairness by making each screening decision open to human review.
+
+## Fairness
+
+Fairness is the responsible AI dimension that considers the impact of an AI system on different groups of stakeholders, such as groups defined by gender, age, or ethnicity. A fair screening system does not systematically favor or disadvantage applicants from particular demographic groups.
+To support fairness, the company can check its training data for representation and historical bias, evaluate selection rates and error rates across groups, and adjust the data or model when disparities appear. This directly supports the goal of impartial decisions across demographic groups in every job category.
+
+## Controllability
+- Controllability is the responsible AI dimension that concerns mechanisms to monitor and steer the behavior of an AI system, such as the ability to override or stop it. It is valuable for any system that makes consequential decisions. However, it does not specifically address impartial treatment of demographic groups or help reviewers understand why a decision was made.
+
+## Veracity and robustness
+- Veracity and robustness is the responsible AI dimension that concerns producing correct outputs, even when inputs are unexpected or adversarial. A robust screening system works reliably on unusual applications. However, robustness does not ensure that outcomes are impartial across demographic groups, and it does not explain individual decisions to the reviewers. Robust behavior is necessary, but it does not address either of the company's goals.
+
+## Privacy and security
+- Privacy and security is the responsible AI dimension that concerns appropriately obtaining, using, and protecting data and models. Protecting applicants' personal data is essential in recruitment. However, strong privacy controls do not ensure that screening outcomes are impartial across demographic groups or that reviewers understand individual decisions. Privacy protects applicant data, but it does not address impartiality or reviewer understanding of decisions.
+
 ---
 
 ## 10. Classic Exam Traps
