@@ -349,13 +349,40 @@ AWS Region basics: each Region has a minimum of 3 Availability Zones; each AZ is
 
 Titan Image Generator supports inpainting, outpainting, variations, background removal, and adds an **invisible watermark** to identify AI-generated images (a responsible AI point). Model lineups change often, so verify current names in the Bedrock console and the official exam guide.
 
-### Evaluation metrics
+### Evaluation metrics: ROUGE, BLEU, BERTScore
 
-| Metric | Used for |
-|---|---|
-| ROUGE | Summarization |
-| BLEU | Translation |
-| BERTScore | Semantic similarity |
+All three compare **generated text** against **reference text** written by humans.
+
+| | **ROUGE** | **BLEU** | **BERTScore** |
+|---|---|---|---|
+| **Full name** | Recall-Oriented Understudy for Gisting Evaluation | Bilingual Evaluation Understudy | BERT-based similarity score |
+| **Main use** | **Summarization** | **Machine translation** | Any text generation where meaning matters (summaries, translation, paraphrase, Q&A) |
+| **How it works** | Measures n-gram or sequence overlap, focused on **recall** (how much of the reference appears in the output) | Measures n-gram overlap, focused on **precision** (how much of the output appears in the reference), with a **brevity penalty** | Compares **contextual embeddings** of tokens using cosine similarity, then reports precision, recall and F1 |
+| **Captures meaning?** | No, exact word match only | No, exact word match only | **Yes**, handles synonyms and paraphrases |
+| **Score range** | 0–1 | 0–1 | Roughly 0–1 (higher is better) |
+
+### ROUGE variants
+- **ROUGE-1:** unigram (single word) overlap.
+- **ROUGE-2:** bigram (two-word) overlap.
+- **ROUGE-L:** longest common subsequence, which reflects sentence structure and word order.
+
+### Limitations
+- **ROUGE and BLEU** penalize valid paraphrases because they only match exact words. "The car is fast" and "The automobile is quick" would score low.
+- **BERTScore** is better for semantic equivalence but is computationally heavier and depends on the underlying embedding model.
+- None of them check **factual correctness**, tone or safety, so human evaluation is still needed for subjective qualities such as brand voice.
+
+### Memory tricks
+- **ROUGE → Recall → summaRies**
+- **BLEU → Bilingual → translation (precision)**
+- **BERTScore → Bert understands meaning → semantic similarity**
+
+### Exam tips
+- Summarization quality → **ROUGE**.
+- Translation quality → **BLEU**.
+- Semantic similarity or paraphrase tolerance → **BERTScore**.
+- Subjective qualities such as tone and helpfulness → **human evaluation**.
+- General language understanding benchmarks → **GLUE / SuperGLUE**.
+- **Amazon Bedrock Model Evaluation** supports automatic metrics (including ROUGE and BERTScore, plus accuracy, robustness and toxicity) and human-based evaluation.
 
 ---
 
