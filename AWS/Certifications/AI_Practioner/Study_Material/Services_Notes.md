@@ -200,7 +200,44 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - Keep API traffic between your VPC and Bedrock on the **AWS private network** rather than traversing the public internet.
 - Improve **network isolation and security** for applications accessing Bedrock.
 
+### 6. RAG and vector databases on AWS
 
+### RAG pipeline (know the order)
+1. **Ingest:** load documents (S3, web, Confluence, SharePoint, etc.).
+2. **Chunk:** split the text (fixed-size, hierarchical, semantic, or no chunking).
+3. **Embed:** convert chunks to vectors with an embedding model (Amazon Titan Text Embeddings, Cohere Embed).
+4. **Store:** save the vectors and metadata in a vector database.
+5. **Query:** embed the user question with the *same* embedding model.
+6. **Retrieve:** run a similarity search (cosine, dot product, or Euclidean) and return the top-k chunks.
+7. **Augment and generate:** add the chunks to the prompt and the LLM answers using them.
+
+**Why RAG:** it grounds answers in current, private data without retraining, reduces hallucinations, and lets you cite sources. It is cheaper and faster than fine-tuning for knowledge updates.
+
+**Knowledge Bases for Amazon Bedrock** is the managed version. It automates steps 1–4 and offers `Retrieve` and `RetrieveAndGenerate` APIs.
+
+### AWS vector store options
+
+| Service | Key points | Pick it when… |
+|---|---|---|
+| **Amazon OpenSearch Service / Serverless** | k-NN vector search, hybrid search (keyword + vector), scales well. Serverless is the default "quick create" option in Bedrock Knowledge Bases. | You need a general-purpose, scalable vector store or hybrid search. |
+| **Aurora PostgreSQL / RDS PostgreSQL (pgvector)** | Vectors stored in relational tables alongside SQL data. | Your data is already in PostgreSQL and you want SQL and vectors together. |
+| **Amazon Neptune Analytics** | Graph database with vector search, used for GraphRAG. | Relationships between entities matter. |
+| **Amazon DocumentDB** | Vector search over JSON documents, MongoDB-compatible. | Your data is already in DocumentDB. |
+| **Amazon MemoryDB** | In-memory vector search with very low latency. | You need real-time, ultra-fast retrieval. |
+| **Amazon S3 Vectors** | Native vector storage in S3, low cost (newer; verify current status). | You have large vector sets and cost matters more than latency. |
+| **Third-party (Pinecone, Redis Enterprise Cloud, MongoDB Atlas)** | Supported by Bedrock Knowledge Bases. | You already use these tools. |
+
+**Related, but not a vector DB:** **Amazon Kendra** is managed intelligent enterprise search with ML-based semantic retrieval. It can serve as the retriever in a RAG app.
+
+### Exam tips
+- "Already uses PostgreSQL / Aurora" → **pgvector**.
+- "Fully managed RAG with minimal code" → **Knowledge Bases for Bedrock**.
+- "Hybrid keyword + semantic search at scale" → **OpenSearch**.
+- "Graph relationships and RAG" → **Neptune Analytics**.
+- Use the **same embedding model** for indexing and querying.
+- Vector stores are not for tabular analytics. Athena, CloudFront and Route 53 are not vector stores.
+- RAG changes the **prompt**, not the model. Fine-tuning changes the model.
+---
 
 
 ## Amazon Q family
