@@ -15,6 +15,134 @@
 - Semi-supervised vs. supervised: semi-supervised is the answer when "labeling is expensive/limited" is mentioned in the question.
 - Reinforcement is the odd one out — it's not about labels at all, it's about reward/penalty feedback over a sequence of actions.
 
+## ML learning techniques with examples
+
+## Overview
+
+| Technique | Data | Goal |
+|---|---|---|
+| Supervised | Fully labeled | Predict a known output |
+| Unsupervised | No labels | Find hidden structure |
+| Semi-supervised | Small labeled set + large unlabeled set | Get good accuracy without labeling everything |
+| Self-supervised | Unlabeled (labels generated from the data itself) | Learn representations; how LLMs are pre-trained |
+| Reinforcement | No dataset; an agent interacts with an environment | Maximize cumulative reward |
+
+---
+
+## 1. Supervised learning
+
+Trains on **labeled** data (input + correct output) to predict outputs for new inputs.
+
+### Classification (predict a category)
+- **Binary:** spam vs. not spam; loan default yes/no; tumor malignant/benign.
+- **Multi-class:** classify a support ticket as billing, technical or sales; identify a flower species.
+- **Common algorithms:** logistic regression, decision trees, random forest, XGBoost, SVM.
+
+### Regression (predict a number)
+- Predict house price from size and location.
+- Forecast next month's sales or tomorrow's temperature.
+- Estimate delivery time.
+- **Common algorithms:** linear regression, XGBoost, random forest.
+
+### Neural networks (a more complex supervised technique)
+Stacked layers of mathematical transformations whose weights are adjusted during training.
+- Predicting a digit from a handwritten image (MNIST).
+- Image classification (cat vs. dog), speech recognition.
+- Deep learning is neural networks with many layers. Neural networks can also be used unsupervised or self-supervised.
+
+**AWS mapping:** SageMaker XGBoost, Linear Learner, Image Classification; Amazon Rekognition Custom Labels.
+
+---
+
+## 2. Unsupervised learning
+
+Finds patterns in **unlabeled** data. There is no "right answer" to learn from.
+
+### Clustering
+Groups similar data points together.
+- Customer segmentation by purchase behavior.
+- Identifying types of network traffic to flag potential security incidents.
+- Grouping news articles by topic.
+- **Algorithms:** k-means, hierarchical clustering, DBSCAN.
+
+### Dimensionality reduction
+Reduces the number of features while keeping the important information. It is often used to preprocess data for other ML tasks and to cut cost and complexity.
+- Compressing hundreds of sensor readings into a few key components.
+- Blurring or cropping background features in an image recognition app.
+- Visualizing high-dimensional data in 2D.
+- **Algorithms:** PCA, t-SNE, autoencoders.
+
+### Anomaly detection
+Finds data points that don't fit the normal pattern.
+- Detecting unusual server metrics or a sudden spike in API calls.
+- Spotting faulty equipment from sensor data.
+- **Algorithm:** Random Cut Forest.
+
+### Association rule learning
+Finds relationships between items.
+- Market-basket analysis: "customers who buy bread often buy butter."
+
+**AWS mapping:** SageMaker K-Means, PCA, Random Cut Forest; Amazon Lookout for Metrics (anomaly detection).
+
+---
+
+## 3. Semi-supervised learning
+
+Uses a **small labeled set** plus a **large unlabeled set**. It is useful when labeling is expensive or slow.
+
+**Examples:**
+- **Fraud identification:** within a large set of transactions, only a subset has been confirmed as fraud by experts. The solution trains on the unlabeled data first, then refines with the labeled data for better accuracy.
+- **Sentiment analysis:** labeling sentiment across every customer channel is not cost-effective. Train on the large unlabeled portion first, then on a labeled sample, to get more confidence in overall customer sentiment.
+- **Medical imaging:** only a few scans are annotated by radiologists, but thousands more are available unlabeled.
+- **Speech recognition:** a small amount of transcribed audio plus a large archive of untranscribed audio.
+
+**AWS mapping:** SageMaker Ground Truth can label a subset of data and use active learning to auto-label the rest.
+
+---
+
+## 4. Self-supervised learning
+
+The model creates its own labels from the data's structure. No human labeling is needed.
+- **LLMs:** predict the next token or a masked word in text (GPT-style, BERT-style).
+- **Image models:** predict missing patches of an image.
+- This is the foundation of **pre-training for foundation models**, which are later adapted with fine-tuning or prompting.
+
+---
+
+## 5. Reinforcement learning (RL)
+
+An **agent** takes **actions** in an **environment**, receives **rewards or penalties**, and learns a policy that maximizes long-term reward.
+- A robot learning to navigate a warehouse (reward for reaching the target, penalty for collisions).
+- Game-playing agents (chess, Go).
+- Dynamic pricing, ad bidding, and traffic-signal optimization.
+- **RLHF (Reinforcement Learning from Human Feedback):** human preferences train a reward model that aligns an LLM's responses to be more helpful and safe.
+
+**AWS mapping:** SageMaker RL; AWS DeepRacer (a hands-on RL learning tool).
+
+---
+
+## Other terms to know
+- **Transfer learning:** reuse a model trained on one task as the starting point for another. For example, fine-tune a pre-trained image model for your own product photos.
+- **Online vs. batch learning:** online updates the model continuously as new data arrives; batch trains on a fixed dataset.
+
+---
+
+## Exam tips: spot the technique from the scenario
+
+| If the scenario says… | Answer |
+|---|---|
+| Labeled data, predict a category | Supervised classification |
+| Labeled data, predict a number | Supervised regression |
+| Predict a digit from a handwritten image | Neural network |
+| Group customers or traffic without labels | Clustering |
+| Reduce the number of features / simplify data | Dimensionality reduction |
+| Few labels + lots of unlabeled data | Semi-supervised |
+| Agent, rewards, penalties, environment | Reinforcement learning |
+| Model learns from the text itself (predict the next word) | Self-supervised |
+| Unusual or rare events with no labeled examples | Anomaly detection (unsupervised) |
+
+I can turn these into a 10-question scenario quiz, or add them to a combined study sheet with the earlier notes.
+
 ## Model Fit
 - **Underfitting**: model too simple, misses real patterns → poor performance on both training and test data. Fix: more complex model, more/better features, train longer.
 - **Overfitting**: model too complex, memorizes training data noise → great training performance, poor test/generalization performance. Fix: more training data, regularization, simplify model, early stopping, dropout.
