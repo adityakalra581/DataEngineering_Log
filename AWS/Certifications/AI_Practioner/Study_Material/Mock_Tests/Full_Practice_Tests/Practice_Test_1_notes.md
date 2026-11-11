@@ -56,3 +56,19 @@ Together, these metrics show whether the agent improves efficiency and return on
 - **Association rule learning** - This is an example of unsupervised learning. Association rule learning techniques uncover rule-based relationships between inputs in a dataset. For example, the Apriori algorithm conducts market basket analysis to identify rules like coffee and milk often being purchased together.
 
 - **Clustering** - Clustering is an unsupervised learning technique that groups certain data inputs, so they may be categorized as a whole. There are various types of clustering algorithms depending on the input data. An example of clustering is identifying different types of network traffic to predict potential security incidents.
+
+
+### What is continued pre-training?
+Continue training a pretrained language model on unlabeled domain data to improve its domain knowledge
+
+Continued pre-training starts from a model that has already been pre-trained and trains it further on unlabeled, domain-specific text, such as legal documents, medical literature, or internal technical manuals. The training objective is the same self-supervised objective that is used in pre-training, such as predicting the next token.
+
+The model keeps its general language abilities and gains knowledge of the domain's vocabulary, concepts, and style. Because the data does not need labels, organizations can use large collections of existing documents. Amazon Bedrock supports continued pre-training for some models and creates a private custom model that can then be used for inference.
+
+Incorrect options:
+
+Train a brand-new language model from randomly initialized weights by using a large selected corpus - Training a new language model from randomly initialized weights describes pre-training from scratch. This process requires massive datasets and compute and produces a new base model. Continued pre-training is different because it starts from a model that is already pre-trained and keeps its learned knowledge, then extends that knowledge with additional domain text.
+
+Train a smaller student model to reproduce useful responses from a larger teacher model - Training a smaller student model to reproduce the responses of a larger teacher model describes **model distillation**. Distillation reduces cost and latency while trying to keep the quality of the larger model. It transfers existing capabilities between models rather than adding domain knowledge from unlabeled text, so it is not continued pre-training.
+
+Train a pretrained language model on labeled examples to specialize it for one task - Training a pretrained model on labeled examples to specialize it for one task describes **fine-tuning**. Fine-tuning uses supervised data, such as prompt and completion pairs, to teach a specific behavior. Continued pre-training uses unlabeled domain text instead and focuses on improving domain knowledge rather than performance on a single labeled task. The two techniques use different data.
