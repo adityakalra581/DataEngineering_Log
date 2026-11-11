@@ -135,6 +135,11 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - AWS Trusted Advisor is a service that provides guidance to help you provision your resources following AWS best practices.
 - It helps optimize your AWS environment in areas such as cost savings, performance, security, and fault tolerance, making it an essential tool for governance in AI systems.
 
+## Service control policies (SCPs)
+
+- Service control policies (SCPs) are a type of policy in AWS Organizations that set the maximum permissions available to IAM users and roles in member accounts. An SCP does not grant permissions. Instead, it acts as a guardrail: an action that the SCP denies cannot be performed, even if an IAM policy in the account allows it.
+- The compliance team can attach an SCP to the organization root or to organizational units that denies Amazon Bedrock invocation actions, such as bedrock:InvokeModel, on every foundation model except the approved model ARNs. Because the SCP applies across all member accounts, an account administrator cannot override it by granting broader IAM permissions. This gives the company central, enforceable control over which models every account can use.
+
 ## AWS Security Services – Section Summary
 - Macie – find sensitive data (ex: PII data) in Amazon S3 buckets
 - Config – track config changes and compliance against rules
