@@ -384,6 +384,91 @@ All three compare **generated text** against **reference text** written by human
 - General language understanding benchmarks → **GLUE / SuperGLUE**.
 - **Amazon Bedrock Model Evaluation** supports automatic metrics (including ROUGE and BERTScore, plus accuracy, robustness and toxicity) and human-based evaluation.
 
+### temperature, Top P, Top K
+
+All three are **inference parameters**. They control how the model picks the next token from its probability distribution. They change output style and randomness only. They do **not** change the model's knowledge or weights.
+
+Running example: the model has to complete *"The sky is ___"* and assigns these probabilities:
+
+| Token | blue | clear | cloudy | falling | green | purple |
+|---|---|---|---|---|---|---|
+| Probability | 0.50 | 0.20 | 0.15 | 0.08 | 0.05 | 0.02 |
+
+---
+
+### 1. Temperature
+
+**Definition:** Temperature rescales the probability distribution before sampling and controls how random the output is.
+- **Low (near 0):** the distribution sharpens, so the model almost always picks the top token. Output is focused, predictable and repeatable.
+- **High (near 1 or above):** the distribution flattens, so unlikely tokens get picked more often. Output is more varied and creative, with more risk of errors.
+
+**Example:**
+- Temperature 0.1: "The sky is **blue**" nearly every time.
+- Temperature 1.0: you might get "The sky is **cloudy**", "**clear**", or occasionally "**falling**".
+
+**Use cases:**
+
+| Setting | Use cases |
+|---|---|
+| Low (0–0.3) | Factual Q&A, data extraction, classification, code generation, customer support answers, summarizing legal or medical text |
+| Medium (0.4–0.7) | General chatbots, email drafting, balanced summaries |
+| High (0.8–1.0) | Brainstorming, poetry, storytelling, marketing taglines, idea generation |
+
+---
+
+### 2. Top K
+
+**Definition:** Top K limits sampling to the **K most likely tokens**. Everything else is discarded, then the model samples among those K (probabilities renormalized). K is a **fixed count**.
+
+**Example:**
+- **Top K = 1:** only "blue" (greedy, fully deterministic).
+- **Top K = 3:** the model samples among **blue, clear, cloudy** only. "Falling", "green" and "purple" are impossible.
+- **Top K = 50:** a very wide pool, so output is more diverse.
+
+**Use cases:**
+- **Low K (1–10):** precise, safe outputs such as code, structured data and factual answers.
+- **High K (40–100+):** creative writing and open-ended generation.
+
+**Weakness:** K is fixed regardless of the distribution. If one token has 95% probability, K=3 still lets two low-quality tokens in.
+
+---
+
+### 3. Top P (nucleus sampling)
+
+**Definition:** Top P picks the **smallest set of tokens whose cumulative probability reaches P**, then samples only from that set. The pool size **adapts** to the model's confidence.
+
+**Example (using the table above):**
+- **Top P = 0.5:** blue alone reaches 0.50, so the pool is {blue}.
+- **Top P = 0.9:** blue (0.50) + clear (0.70) + cloudy (0.85) + falling (0.93), so the pool is {blue, clear, cloudy, falling}.
+- If the model is very confident (e.g., "blue" = 0.95), Top P = 0.9 picks just **one** token. Top K = 3 would still allow three.
+
+**Use cases:**
+- **Low P (0.1–0.5):** factual, precise, consistent responses.
+- **High P (0.9–1.0):** creative or conversational content, where the model should consider a wider range.
+
+---
+
+### Comparison
+
+| | Temperature | Top K | Top P |
+|---|---|---|---|
+| **Controls** | Shape of the distribution (how "peaked" it is) | A fixed number of candidate tokens | A cumulative probability threshold |
+| **Range** | 0 to 1 in most Bedrock models (some allow higher) | Integer (1, 2, 50, …) | 0 to 1 |
+| **Pool size** | Not applicable, all tokens remain possible | Fixed | Dynamic |
+| **Lower value →** | More deterministic | Fewer choices, safer | Fewer choices, safer |
+| **Higher value →** | More random and creative | More choices, more diverse | More choices, more diverse |
+
+---
+
+### Exam tips
+- **Deterministic, factual output** (code, extraction, compliance answers) → **low temperature** (and/or low Top P / Top K).
+- **Creative output** (brainstorming, stories) → **high temperature**.
+- Top K = a **number** of tokens. Top P = a **probability** threshold.
+- Temperature changes *how likely* tokens are. Top K and Top P change *which tokens are eligible*.
+- They are typically **combined**, and a common practice is to tune temperature **or** Top P, not both aggressively at once.
+- Other inference parameters to remember: **max tokens / response length** (caps output size) and **stop sequences** (text that ends generation).
+- Changing these parameters does **not** retrain the model or reduce hallucinations by itself. For hallucinations, use RAG, Guardrails and prompt engineering.
+
 ---
 
 ## 10. Classic Exam Traps
