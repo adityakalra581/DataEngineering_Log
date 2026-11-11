@@ -67,7 +67,7 @@ Exam pattern: "unpredictable, bursty traffic, don't want to manage instance sizi
 - Feature Store: store features/metadata in a central place
 - Clarify: compare models, explain model outputs, detect bias
 - Ground Truth: RLHF, humans for model grading and data labeling (Ground Truth Plus = AWS-managed turnkey version)
-- Model Cards: ML model documentation
+- Model Cards: ML model documentation, record an ML model's purpose, responsible owners, and known limitations, all under these.
 - Model Dashboard: view all your models in one place
 - Model Monitor: monitoring and alerts for your model
 - Model Registry: centralized repository to manage ML model versions
