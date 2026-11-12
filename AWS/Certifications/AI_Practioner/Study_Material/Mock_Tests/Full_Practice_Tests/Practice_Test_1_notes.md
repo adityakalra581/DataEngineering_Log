@@ -91,3 +91,9 @@ Train a brand-new language model from randomly initialized weights by using a la
 - **Perplexity** - Perplexity measures how well a language model predicts a sequence of text, with lower values meaning better prediction. It evaluates the language model itself rather than comparing a specific generated translation with a reference translation. Perplexity does not tell the publisher how close each translated summary is to its reference. It evaluates the model rather than outputs.
 
 - **Recall-Oriented Understudy for Gisting Evaluation (ROUGE)** - ROUGE measures word and phrase overlap between generated text and reference text with a focus on recall, and it is designed mainly for evaluating summarization. The publisher's specific need is to compare translations with reference translations, which BLEU was designed for. BLEU is therefore the more appropriate metric for translation quality. ROUGE suits summaries better.
+
+### RLHF
+- RLHF uses human preferences to fine-tune the model, but a human evaluation job only rates the models and does not change them
+- RLHF is a training technique. Humans rank or compare the model's responses, a reward model learns from these preferences, and the language model is fine-tuned with reinforcement learning to produce responses that people prefer. The model's weights change.
+- A human-based model evaluation job in Amazon Bedrock is an assessment. Your own work team rates or compares the responses of up to two models on metrics that you define, by using rating methods such as thumbs up or down, Likert scales, or ordinal ranking. The results help you choose or validate a model, but the evaluation does not change the model.
+- Human-in-the-loop evaluation is valuable for subjective qualities, such as tone, helpfulness, and brand voice.
