@@ -75,3 +75,9 @@ Train a brand-new language model from randomly initialized weights by using a la
 - Train a pretrained language model on labeled examples to specialize it for one task -
 - Training a pretrained model on labeled examples to specialize it for one task describes **fine-tuning**. Fine-tuning uses supervised data, such as prompt and completion pairs, to teach a specific behavior. Continued pre-training uses unlabeled domain text instead and focuses on improving domain knowledge rather than performance on a single labeled task. The two techniques use different data.
 
+**FM and Model Customization**:
+
+- Foundation model (FM) is an AI model with a large number of parameters and trained on a massive amount of diverse data. A foundation model can generate a variety of responses for a wide range of use cases. Foundation models can generate text or image, and can also convert input into embeddings.
+
+- Model customization is the process of using training data to adjust the model parameter values in a base model to create a custom model. Examples of model customization include Fine-tuning, which uses labeled data (inputs and corresponding outputs), and Continued Pre-training, which uses unlabeled data (inputs only) to adjust model parameters.
+
