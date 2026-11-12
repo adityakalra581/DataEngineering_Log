@@ -135,6 +135,10 @@ Exam-focused notes: what each service is, when to pick it, and the comparisons e
 - AWS Trusted Advisor is a service that provides guidance to help you provision your resources following AWS best practices.
 - It helps optimize your AWS environment in areas such as cost savings, performance, security, and fault tolerance, making it an essential tool for governance in AI systems.
 
+## Compute Optimizer
+- AWS Compute Optimizer analyzes utilization metrics for resources such as Amazon EC2 instances, Auto Scaling groups, Amazon EBS volumes, AWS Lambda functions, and Amazon ECS services on Fargate.
+- It recommends optimal resource configurations for those resource types. Compute Optimizer does not analyze Amazon Comprehend custom model endpoints, so it cannot recommend actions for the retailer's idle endpoints.
+
 ## Service control policies (SCPs)
 
 - Service control policies (SCPs) are a type of policy in AWS Organizations that set the maximum permissions available to IAM users and roles in member accounts. An SCP does not grant permissions. Instead, it acts as a guardrail: an action that the SCP denies cannot be performed, even if an IAM policy in the account allows it.
