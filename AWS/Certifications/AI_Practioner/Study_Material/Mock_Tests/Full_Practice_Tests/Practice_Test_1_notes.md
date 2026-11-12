@@ -81,3 +81,13 @@ Train a brand-new language model from randomly initialized weights by using a la
 
 - Model customization is the process of using training data to adjust the model parameter values in a base model to create a custom model. Examples of model customization include Fine-tuning, which uses labeled data (inputs and corresponding outputs), and Continued Pre-training, which uses unlabeled data (inputs only) to adjust model parameters.
 
+**Metrics**:
+- **Bilingual Evaluation Understudy (BLEU)**
+- Bilingual Evaluation Understudy (BLEU) is a standard metric for evaluating machine translation. It compares the n-grams (sequences of one or more words) in a generated translation with those in one or more human reference translations and measures how many match, with a penalty for translations that are too short.
+- Higher BLEU scores indicate that the generated text is closer to the reference translations. Because the publisher needs to compare translated summaries with reference translations, BLEU is the most appropriate metric. It is automated and fast, so it can be applied to many summaries in several languages as the publisher evaluates the quality of its outputs.
+
+- **Precision** - Precision measures the proportion of positive predictions that are correct in a classification task, such as identifying spam emails. It requires discrete labels and is not designed to compare free-form translated text with reference translations. Precision cannot measure how closely a translated summary matches its human reference translation. Precision is a classification metric.
+
+- **Perplexity** - Perplexity measures how well a language model predicts a sequence of text, with lower values meaning better prediction. It evaluates the language model itself rather than comparing a specific generated translation with a reference translation. Perplexity does not tell the publisher how close each translated summary is to its reference. It evaluates the model rather than outputs.
+
+- **Recall-Oriented Understudy for Gisting Evaluation (ROUGE)** - ROUGE measures word and phrase overlap between generated text and reference text with a focus on recall, and it is designed mainly for evaluating summarization. The publisher's specific need is to compare translations with reference translations, which BLEU was designed for. BLEU is therefore the more appropriate metric for translation quality. ROUGE suits summaries better.
