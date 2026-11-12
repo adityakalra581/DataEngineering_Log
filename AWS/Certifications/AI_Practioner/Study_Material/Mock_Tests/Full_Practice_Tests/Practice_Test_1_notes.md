@@ -69,6 +69,9 @@ Incorrect options:
 
 Train a brand-new language model from randomly initialized weights by using a large selected corpus - Training a new language model from randomly initialized weights describes pre-training from scratch. This process requires massive datasets and compute and produces a new base model. Continued pre-training is different because it starts from a model that is already pre-trained and keeps its learned knowledge, then extends that knowledge with additional domain text.
 
-Train a smaller student model to reproduce useful responses from a larger teacher model - Training a smaller student model to reproduce the responses of a larger teacher model describes **model distillation**. Distillation reduces cost and latency while trying to keep the quality of the larger model. It transfers existing capabilities between models rather than adding domain knowledge from unlabeled text, so it is not continued pre-training.
+- Train a smaller student model to reproduce useful responses from a larger teacher model -
+- Training a smaller student model to reproduce the responses of a larger teacher model describes **model distillation**. Distillation reduces cost and latency while trying to keep the quality of the larger model. It transfers existing capabilities between models rather than adding domain knowledge from unlabeled text, so it is not continued pre-training.
 
-Train a pretrained language model on labeled examples to specialize it for one task - Training a pretrained model on labeled examples to specialize it for one task describes **fine-tuning**. Fine-tuning uses supervised data, such as prompt and completion pairs, to teach a specific behavior. Continued pre-training uses unlabeled domain text instead and focuses on improving domain knowledge rather than performance on a single labeled task. The two techniques use different data.
+- Train a pretrained language model on labeled examples to specialize it for one task -
+- Training a pretrained model on labeled examples to specialize it for one task describes **fine-tuning**. Fine-tuning uses supervised data, such as prompt and completion pairs, to teach a specific behavior. Continued pre-training uses unlabeled domain text instead and focuses on improving domain knowledge rather than performance on a single labeled task. The two techniques use different data.
+
