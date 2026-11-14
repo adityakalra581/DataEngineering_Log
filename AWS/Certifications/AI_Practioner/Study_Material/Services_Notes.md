@@ -320,7 +320,7 @@ Modality · cost · latency · context window · multilingual support · model s
 | **Feature Store** | Store feature metadata/features in a central place |
 | **Clarify** | Compare models, explain model outputs, **detect bias** |
 | **Ground Truth** | RLHF; humans for model grading and **data labeling** |
-| **Model Cards** | ML model documentation |
+| **Model Cards** | ML model documentation (ex: model's purpose, responsible owners, and known limitations. |
 | **Model Dashboard** | View all your models in one place |
 | **Model Monitor** | Monitoring and alerts for your model (drift/quality) |
 | **Model Registry** | Centralized repository to manage ML model versions |
