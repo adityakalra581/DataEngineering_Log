@@ -97,3 +97,15 @@ Train a brand-new language model from randomly initialized weights by using a la
 - RLHF is a training technique. Humans rank or compare the model's responses, a reward model learns from these preferences, and the language model is fine-tuned with reinforcement learning to produce responses that people prefer. The model's weights change.
 - A human-based model evaluation job in Amazon Bedrock is an assessment. Your own work team rates or compares the responses of up to two models on metrics that you define, by using rating methods such as thumbs up or down, Likert scales, or ordinal ranking. The results help you choose or validate a model, but the evaluation does not change the model.
 - Human-in-the-loop evaluation is valuable for subjective qualities, such as tone, helpfulness, and brand voice.
+
+### Sagemaker Inference
+
+Requests with large payload sizes up to 1GB and long processing times
+
+- Amazon SageMaker Asynchronous Inference is a capability in SageMaker that queues incoming requests and processes them asynchronously. This option is ideal for requests with large payload sizes (up to 1GB), long processing times (up to one hour), and near real-time latency requirements. Asynchronous Inference enables you to save on costs by autoscaling the instance count to zero when there are no requests to process, so you only pay when your endpoint is processing requests.
+
+- To get predictions for an entire dataset - To get predictions for an entire dataset, SageMaker batch transform deployment type is recommended.
+
+- For persistent, real-time endpoints that make one prediction at a time - For persistent, real-time endpoints that make one prediction at a time, SageMaker real-time hosting services are recommended.
+
+- For workloads that can tolerate cold starts - For workloads that have idle periods between traffic spikes and can tolerate cold starts, SageMaker Serverless Inference is recommended.
