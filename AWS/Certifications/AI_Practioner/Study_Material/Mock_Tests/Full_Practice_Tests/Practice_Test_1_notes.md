@@ -109,3 +109,11 @@ Requests with large payload sizes up to 1GB and long processing times
 - For persistent, real-time endpoints that make one prediction at a time - For persistent, real-time endpoints that make one prediction at a time, SageMaker real-time hosting services are recommended.
 
 - For workloads that can tolerate cold starts - For workloads that have idle periods between traffic spikes and can tolerate cold starts, SageMaker Serverless Inference is recommended.
+
+### Bedrock vs Sagemaker Jumpstart
+
+- Amazon Bedrock provides foundational models for generative AI applications, whereas Amazon SageMaker JumpStart offers pre-built solutions and one-click deployment for various machine learning models
+
+- Amazon Bedrock is the easiest way to build and scale generative AI applications with foundation models. Amazon Bedrock is a fully managed service that offers a choice of high-performing foundation models (FMs) from leading AI companies like AI21 Labs, Anthropic, Cohere, Meta, Mistral AI, Stability AI, and Amazon through a single API, along with a broad set of capabilities you need to build generative AI applications with security, privacy, and responsible AI.
+
+- Amazon SageMaker JumpStart is a machine learning (ML) hub that can help you accelerate your ML journey. With SageMaker JumpStart, you can evaluate, compare, and select FMs quickly based on pre-defined quality and responsibility metrics to perform tasks like article summarization and image generation. SageMaker JumpStart provides managed infrastructure and tools to accelerate scalable, reliable, and secure model building, training, and deployment of ML models.
